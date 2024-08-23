@@ -5,11 +5,12 @@ import { defaultTheme } from "@univerjs/design";
 import { UniverDocsPlugin } from "@univerjs/docs";
 import { UniverDocsUIPlugin } from "@univerjs/docs-ui";
 import { UniverFormulaEnginePlugin } from "@univerjs/engine-formula";
-import { UniverRenderEnginePlugin } from "@univerjs/engine-render";
+import { DeviceInputEventType, UniverRenderEnginePlugin } from "@univerjs/engine-render";
 import { UniverSheetsPlugin } from "@univerjs/sheets";
 import { UniverSheetsFormulaPlugin } from "@univerjs/sheets-formula";
 import { UniverSheetsUIPlugin } from "@univerjs/sheets-ui";
 import { UniverUIPlugin } from "@univerjs/ui";
+import { FUniver } from "@univerjs/facade"
 
 /**
  * The ability to import locales from virtual modules and automatically import styles is provided by Univer Plugins. For more details, please refer to: https://univer.ai/guides/sheet/advanced/univer-plugins.
@@ -21,23 +22,23 @@ import { UniverUIPlugin } from "@univerjs/ui";
 import { zhCN, enUS } from 'univer:locales'
 
 const univer = new Univer({
-  theme: defaultTheme,
-  locale: LocaleType.EN_US,
-  locales: {
-    [LocaleType.ZH_CN]: zhCN,
-    [LocaleType.EN_US]: enUS,
-  },
+    theme: defaultTheme,
+    locale: LocaleType.EN_US,
+    locales: {
+        [LocaleType.ZH_CN]: zhCN,
+        [LocaleType.EN_US]: enUS,
+    },
 });
 
 univer.registerPlugin(UniverRenderEnginePlugin);
 univer.registerPlugin(UniverFormulaEnginePlugin);
 
 univer.registerPlugin(UniverUIPlugin, {
-  container: 'app',
+    container: 'app',
 });
 
 univer.registerPlugin(UniverDocsPlugin, {
-  hasScroll: false,
+    hasScroll: false,
 });
 univer.registerPlugin(UniverDocsUIPlugin);
 
@@ -47,98 +48,109 @@ univer.registerPlugin(UniverSheetsFormulaPlugin);
 
 // create univer sheet instance
 univer.createUnit(UniverInstanceType.UNIVER_SHEET, {
-  "id": "gyI0JO",
-  "sheetOrder": [
-      "RSfWjJFv4opmE1JaiRj80"
-  ],
-  "name": "",
-  "appVersion": "0.1.11",
-  "locale": "zhCN",
-  "styles": {},
-  "sheets": {
-      "RSfWjJFv4opmE1JaiRj80": {
-          "id": "RSfWjJFv4opmE1JaiRj80",
-          "name": "测试",
-          "tabColor": "",
-          "hidden": 0,
-          "rowCount": 30,
-          "columnCount": 10,
-          "zoomRatio": 1,
-          "freeze": {
-              "startRow": -1,
-              "startColumn": -1,
-              "ySplit": 0,
-              "xSplit": 0
-          },
-          "scrollTop": 0,
-          "scrollLeft": 0,
-          "defaultColumnWidth": 73,
-          "defaultRowHeight": 23,
-          "mergeData": [],
-          "cellData": {},
-          "rowData": {},
-          "columnData": {
-              "0": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "1": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "2": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "3": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "4": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "5": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "6": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "7": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "8": {
-                  "w": 125,
-                  "hd": 0
-              },
-              "9": {
-                  "w": 125,
-                  "hd": 0
-              }
-          },
-          "showGridlines": 1,
-          "rowHeader": {
-              "width": 46,
-              "hidden": 0
-          },
-          "columnHeader": {
-              "height": 20,
-              "hidden": 0
-          },
-          "selections": [
-              "A1"
-          ],
-          "rightToLeft": 0
-      }
-  },
-  "resources": [
-      {
-          "name": "SHEET_DEFINED_NAME_PLUGIN",
-          "data": ""
-      }
-  ]
+    "id": "gyI0JO",
+    "sheetOrder": [
+        "RSfWjJFv4opmE1JaiRj80"
+    ],
+    "name": "",
+    "appVersion": "0.1.11",
+    "locale": "zhCN",
+    "styles": {},
+    "sheets": {
+        "RSfWjJFv4opmE1JaiRj80": {
+            "id": "RSfWjJFv4opmE1JaiRj80",
+            "name": "测试",
+            "tabColor": "",
+            "hidden": 0,
+            "rowCount": 30,
+            "columnCount": 10,
+            "zoomRatio": 1,
+            "freeze": {
+                "startRow": -1,
+                "startColumn": -1,
+                "ySplit": 0,
+                "xSplit": 0
+            },
+            "scrollTop": 0,
+            "scrollLeft": 0,
+            "defaultColumnWidth": 73,
+            "defaultRowHeight": 23,
+            "mergeData": [],
+            "cellData": {},
+            "rowData": {},
+            "columnData": {
+                "0": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "1": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "2": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "3": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "4": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "5": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "6": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "7": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "8": {
+                    "w": 125,
+                    "hd": 0
+                },
+                "9": {
+                    "w": 125,
+                    "hd": 0
+                }
+            },
+            "showGridlines": 1,
+            "rowHeader": {
+                "width": 46,
+                "hidden": 0
+            },
+            "columnHeader": {
+                "height": 20,
+                "hidden": 0
+            },
+            "selections": [
+                "A1"
+            ],
+            "rightToLeft": 0
+        }
+    },
+    "resources": [
+        {
+            "name": "SHEET_DEFINED_NAME_PLUGIN",
+            "data": ""
+        }
+    ]
 }
 );
+
+const univerAPI = FUniver.newAPI(univer)
+
+univerAPI.onBeforeCommandExecute(command => {
+ if (command.id === 'sheet.operation.set-cell-edit-visible') {
+  if ((command.params as { visible: boolean }).visible) {
+    univerAPI.executeCommand('sheet.operation.set-cell-edit-visible', { eventType: DeviceInputEventType.PointerUp, visible: false })
+    throw new Error('禁止编辑')
+  }
+ }
+})

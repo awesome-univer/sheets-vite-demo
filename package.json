@@ -1,33 +1,40 @@
 {
-  "name": "univer-sheets-vite",
-  "private": true,
+  "name": "univer-demo",
   "version": "0.0.0",
+  "private": true,
   "type": "module",
-  "packageManager": "pnpm@9.10.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "@univerjs/core": "^0.2.15",
-    "@univerjs/design": "^0.2.15",
-    "@univerjs/docs": "^0.2.15",
-    "@univerjs/docs-ui": "^0.2.15",
-    "@univerjs/engine-formula": "^0.2.15",
-    "@univerjs/engine-numfmt": "^0.2.15",
-    "@univerjs/engine-render": "^0.2.15",
-    "@univerjs/facade": "^0.2.15",
-    "@univerjs/network": "^0.2.15",
-    "@univerjs/rpc": "^0.2.15",
-    "@univerjs/sheets": "^0.2.15",
-    "@univerjs/sheets-formula": "^0.2.15",
-    "@univerjs/sheets-numfmt": "^0.2.15",
-    "@univerjs/sheets-ui": "^0.2.15",
-    "@univerjs/ui": "^0.2.15"
+    "@univerjs/core": "^0.4.1",
+    "@univerjs/design": "^0.4.1",
+    "@univerjs/docs": "^0.4.1",
+    "@univerjs/docs-ui": "^0.4.1",
+    "@univerjs/engine-formula": "^0.4.1",
+    "@univerjs/engine-render": "^0.4.1",
+    "@univerjs/facade": "^0.4.1",
+    "@univerjs/sheets": "^0.4.1",
+    "@univerjs/sheets-formula": "^0.4.1",
+    "@univerjs/sheets-formula-ui": "^0.4.1",
+    "@univerjs/sheets-ui": "^0.4.1",
+    "@univerjs/ui": "^0.4.1",
+    "pinia": "^2.2.4",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@univerjs/vite-plugin": "^0.5.0",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.7"
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.16.11",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vue/tsconfig": "^0.5.1",
+    "npm-run-all2": "^6.2.3",
+    "typescript": "~5.5.4",
+    "vite": "^5.4.8",
+    "vue-tsc": "^2.1.6"
   }
 }

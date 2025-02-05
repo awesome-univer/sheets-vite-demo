@@ -9,7 +9,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@univerjs/presets": "latest"
+    "@univerjs/presets": "^0.5.5"
   },
   "devDependencies": {
     "typescript": "^5.7.2",
